@@ -1,7 +1,7 @@
 import { defineConfig } from "vite"
 import { createHtmlPlugin } from "vite-plugin-html"
-import mainPage from "./src/pages/index/index.js";
-/* import aboutPage from "./src/pages/about/index.js"; */
+import mainPage from "./src/pages/index";
+import aboutPage from "./src/pages/about"
 
 const pages = [
   {
@@ -14,24 +14,22 @@ const pages = [
   },
 ]
 
-
-export default defineConfig( config {
+export default defineConfig({
   plugins: [
-    createHtmlPlugin (userOptions {
-      minify: true,
-      pages: pages.map(({ name, content }) => ({
-        filename: ${ name }.html,
-        template: ${ name }.html,
-        injectOptions: {
-          data: {
-            injectScript: content,
+    createHtmlPlugin ({
+      // minify: true,
+      minify: false,
+      pages: pages.map(({ name, content }) => {
+        return {
+          filename: `${name}.html`,
+          template: `${name}.html`,
+          injectOptions: {
+            data: {
+              injectScript: content,
+            },
           },
-        },
-      })),
+        }
+      }),
     }),
   ],
 })
-
-export const index = () string => {
-  return <div>Главная</div>
-}

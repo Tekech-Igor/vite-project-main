@@ -1,5 +1,5 @@
 import { withNaming } from "@bem-react/classname"
-import {defaultMeta} from "../config/constants.js"
+/* import {defaultMeta} from "../config/constants.js" */
 
 export const getPage = ({ body = ``, title = ``, meta = [] }) => {
   return `
@@ -36,10 +36,10 @@ export const commonComponentProps = {
 }
 
 export const getAttrs = (attrs) => {
-    const result = []
+    const result = [];
     Object.entries(attrs).forEach(([ key, value ]) => {
-        result.push(${key}=${value});
-    })
-    return result.join(" ")
+        result.push(`${key}=${value}`);
+    });
+    return result.join(" ");
 }
 

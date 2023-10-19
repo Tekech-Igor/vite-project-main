@@ -1,22 +1,22 @@
 import { getPage } from "../../shared/lib"
-import { Button } from "../../shared/button" 
+import { Button } from "../../shared/button"
 
 export default () => {
-  return getPage({
-    title: "О нас",
-    body: `
+    return getPage({
+        title: "О нас",
+        body: `
       <h1>Главная</h1>
-      $Button(props){
-      label: "Тест",
-      extraAttrs: {
-          "data-js-require": true,
-          "id": "btn"
-      },
-      extraClasses: {
-          isHidden: true,
-          isDisabled: true,
-      }
-  })}
+      ${Button({
+            label: "Тест",
+            extraAttrs: {
+                "data-js-require": true,
+                "id": "btn"
+            },
+            extraClasses: {
+                isHidden: true,
+                isDisabled: true,
+            }
+        })}
       <nav>
         <ul>
           <li>
@@ -28,5 +28,5 @@ export default () => {
         </ul>
       </nav>
     `
-  })
+    })
 }
